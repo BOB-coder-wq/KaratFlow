@@ -1,0 +1,226 @@
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\App.xbf
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\MainWindow.xbf
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Web.WebView2.Core.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Azure.Core.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Azure.Identity.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Humanizer.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Build.Locator.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.CodeAnalysis.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Data.SqlClient.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.EntityFrameworkCore.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.DependencyModel.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Logging.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Options.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Extensions.Primitives.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Identity.Client.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.IdentityModel.Logging.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.IdentityModel.Protocols.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.IdentityModel.Tokens.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.SqlServer.Server.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Win32.SystemEvents.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Graphics.Imaging.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AI.ContentSafety.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AI.Foundation.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AI.Imaging.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AI.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AI.Text.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Security.Authentication.OAuth.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AppLifecycle.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AppNotifications.Builder.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AppNotifications.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.ApplicationModel.Background.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.ApplicationModel.Resources.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.BadgeNotifications.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Foundation.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Management.Deployment.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Media.Capture.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.PushNotifications.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Security.AccessControl.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Storage.Pickers.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Storage.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.System.Power.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.System.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.InteractiveExperiences.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.ML.OnnxRuntime.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.Widgets.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.WinUI.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Mono.TextTemplating.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.ClientModel.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.CodeDom.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Composition.AttributedModel.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Composition.Convention.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Composition.Hosting.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Composition.Runtime.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Composition.TypedParts.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Configuration.ConfigurationManager.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Diagnostics.DiagnosticSource.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Drawing.Common.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Formats.Asn1.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.IO.Pipelines.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Memory.Data.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Runtime.Caching.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Security.Cryptography.ProtectedData.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Security.Permissions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Text.Encodings.Web.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Text.Json.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\System.Windows.Extensions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64ec\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64ec\native\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x64\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x86\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x86\native\Microsoft.WindowsAppRuntime.Bootstrap.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64\native\onnxruntime.lib
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-arm64ec\native\onnxruntime.lib
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win-x64\native\onnxruntime.lib
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.SDK.NET.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\WinRT.Runtime.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Web.WebView2.Core.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Windows.AI.MachineLearning.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Karat Flow.deps.json
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\App.xbf
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\MainWindow.xbf
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Karat Flow.exe
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.Data.SqlClient.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Microsoft.SqlServer.Server.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Karat Flow.runtimeconfig.json
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Karat Flow.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow\Karat Flow.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\resources.pri
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\AppxManifest.xml
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Karat Flow (Package).build.appxrecipe
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Microsoft.Web.WebView2.Core.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Microsoft.Web.WebView2.Core.winmd
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Microsoft.Windows.AI.MachineLearning.Projection.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\WinRT.Runtime.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\Microsoft.Windows.SDK.NET.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\Karat Flow (Package).wapproj.AssemblyReference.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\Karat Flow (Package).wapproj.CoreCompileInputs.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\Karat Fl.5C833E3E.Up2Date
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\Karat Flow.pri.xml
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\priconfig.xml
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\priconfig.xml.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\unfiltered.layout.resfiles
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\filtered.layout.resfiles
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\filtered.layout.resfiles.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\excluded.layout.resfiles
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\excluded.layout.resfiles.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\resources.resfiles
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\resources.resfiles.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\pri.resfiles
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\pri.resfiles.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\qualifiers.txt
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\qualifiers.txt.intermediate
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\Karat Flow (Package)\obj\x64\Debug\Karat Flow (Package).wapproj.LastBuild.txt

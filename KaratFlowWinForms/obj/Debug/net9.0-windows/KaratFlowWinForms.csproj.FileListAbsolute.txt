@@ -1,0 +1,14 @@
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.AssemblyInfoInputs.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.AssemblyInfo.cs
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.csproj.CoreCompileInputs.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\bin\Debug\net9.0-windows\KaratFlowWinForms.exe
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\bin\Debug\net9.0-windows\KaratFlowWinForms.deps.json
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\bin\Debug\net9.0-windows\KaratFlowWinForms.runtimeconfig.json
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\bin\Debug\net9.0-windows\KaratFlowWinForms.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\bin\Debug\net9.0-windows\KaratFlowWinForms.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\refint\KaratFlowWinForms.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\KaratFlowWinForms.genruntimeconfig.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowWinForms\obj\Debug\net9.0-windows\ref\KaratFlowWinForms.dll

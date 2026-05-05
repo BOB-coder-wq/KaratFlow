@@ -1,0 +1,14 @@
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.AssemblyInfoInputs.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.AssemblyInfo.cs
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.csproj.CoreCompileInputs.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\bin\Debug\net9.0\KaratFlowDemo.exe
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\bin\Debug\net9.0\KaratFlowDemo.deps.json
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\bin\Debug\net9.0\KaratFlowDemo.runtimeconfig.json
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\bin\Debug\net9.0\KaratFlowDemo.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\bin\Debug\net9.0\KaratFlowDemo.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\refint\KaratFlowDemo.dll
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\KaratFlowDemo.genruntimeconfig.cache
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\KaratFlowDemo\obj\Debug\net9.0\ref\KaratFlowDemo.dll

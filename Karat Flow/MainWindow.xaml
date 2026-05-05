@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Karat_Flow.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Karat_Flow"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Karat Flow - Digital Currency">
+
+    <Grid Background="#FFF5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#FF6B35" Padding="20">
+            <StackPanel>
+                <TextBlock Text="Karat Flow" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                <TextBlock x:Name="WelcomeText" Text="Welcome back!" FontSize="16" Foreground="White" Opacity="0.9"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content -->
+        <ScrollViewer Grid.Row="1" Padding="20">
+            <StackPanel>
+                
+                <!-- Balance Card -->
+                <Border Background="White" CornerRadius="12" Padding="20" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Account Balance" FontSize="14" Foreground="#666"/>
+                        <TextBlock x:Name="BalanceText" Text="0 Karats" FontSize="36" FontWeight="Bold" Foreground="#FF6B35"/>
+                        <TextBlock x:Name="AccountNumberText" Text="Account: KF000000001" FontSize="12" Foreground="#999"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Quick Actions -->
+                <Border Background="White" CornerRadius="12" Padding="20" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Quick Actions" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,15"/>
+                        <StackPanel>
+                            <Button x:Name="SendPaymentBtn" Content="Send Payment" Background="#FF6B35" Foreground="White" Padding="15" Margin="0,0,0,10" Click="SendPaymentBtn_Click"/>
+                            <Button x:Name="ReceivePaymentBtn" Content="Receive Payment" Background="#4CAF50" Foreground="White" Padding="15" Margin="0,0,0,10" Click="ReceivePaymentBtn_Click"/>
+                            <Button x:Name="NFCPaymentBtn" Content="Accept NFC Payment" Background="#2196F3" Foreground="White" Padding="15" Click="NFCPaymentBtn_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- Send Payment Section -->
+                <Border x:Name="SendPaymentSection" Background="White" CornerRadius="12" Padding="20" Margin="0,0,0,20" Visibility="Collapsed">
+                    <StackPanel>
+                        <TextBlock Text="Send Karats" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,15"/>
+                        <TextBox x:Name="RecipientUsernameBox" Header="Recipient Username" Text="" Margin="0,0,0,10"/>
+                        <TextBox x:Name="AmountBox" Header="Amount (Karats)" Text="" Margin="0,0,0,10"/>
+                        <TextBox x:Name="DescriptionBox" Header="Description (Optional)" Text="" Margin="0,0,0,15"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="ConfirmSendBtn" Content="Send Payment" Background="#FF6B35" Foreground="White" Margin="0,0,10,0" Click="ConfirmSendBtn_Click"/>
+                            <Button x:Name="CancelSendBtn" Content="Cancel" Background="#999" Foreground="White" Click="CancelSendBtn_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- NFC Payment Section -->
+                <Border x:Name="NFCPaymentSection" Background="White" CornerRadius="12" Padding="20" Margin="0,0,0,20" Visibility="Collapsed">
+                    <StackPanel>
+                        <TextBlock Text="NFC Payment" FontSize="18" FontWeight="SemiBold" Margin="0,0,0,15"/>
+                        <TextBlock Text="Waiting for NFC card..." FontSize="14" Foreground="#666" Margin="0,0,0,10"/>
+                        <ProgressRing x:Name="NFCProgressRing" IsActive="True" Margin="0,0,0,10"/>
+                        <TextBlock x:Name="NFCStatusText" Text="Ready to accept payment" FontSize="12" Foreground="#2196F3" Margin="0,0,0,15"/>
+                        <Button x:Name="CancelNFCBtn" Content="Cancel" Background="#999" Foreground="White" Click="CancelNFCBtn_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Transaction History -->
+                <Border Background="White" CornerRadius="12" Padding="20">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Recent Transactions" FontSize="18" FontWeight="SemiBold"/>
+                            <Button Grid.Column="1" x:Name="ViewAllBtn" Content="View All" Background="Transparent" Foreground="#FF6B35" Click="ViewAllBtn_Click"/>
+                        </Grid>
+                        
+                        <ListView x:Name="TransactionsList" Height="200" Margin="0,15,0,0"/>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Footer -->
+        <Border Grid.Row="2" Background="#333" Padding="15">
+            <TextBlock Text="© 2026 Karat Flow - Digital Currency System" FontSize="12" Foreground="White" HorizontalAlignment="Center"/>
+        </Border>
+
+    </Grid>
+</Window>
