@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KaratFlowWinForms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e84e8d49a3e5f61f6cdc098021066e66a807f5a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("KaratFlowWinForms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KaratFlowWinForms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

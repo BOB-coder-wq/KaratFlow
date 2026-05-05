@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -51,35 +53,50 @@ public partial class Form1 : Form
     
     private void SetupUI()
     {
-        // Title
+        // Enable double buffering for smooth rendering
+        this.DoubleBuffered = true;
+        
+        // Title with gradient effect
         var titleLabel = new Label
         {
             Text = "💎 Karat Flow",
-            Font = new Font("Segoe UI", 24, FontStyle.Bold),
+            Font = new Font("Segoe UI", 28, FontStyle.Bold),
             ForeColor = Color.FromArgb(255, 107, 53),
             Location = new Point(20, 20),
-            Size = new Size(300, 40),
+            Size = new Size(350, 50),
             AutoSize = true
         };
         this.Controls.Add(titleLabel);
 
-        // Welcome label
+        // Subtitle
+        var subtitleLabel = new Label
+        {
+            Text = "Digital Currency System",
+            Font = new Font("Segoe UI", 10, FontStyle.Italic),
+            ForeColor = Color.FromArgb(255, 107, 53),
+            Location = new Point(25, 55),
+            Size = new Size(200, 20),
+            AutoSize = true
+        };
+        this.Controls.Add(subtitleLabel);
+
+        // Welcome label with modern styling
         welcomeLabel = new Label
         {
             Text = $"Welcome back, Admin User!",
-            Font = new Font("Segoe UI", 12),
-            ForeColor = Color.FromArgb(255, 107, 53),
-            Location = new Point(20, 60),
+            Font = new Font("Segoe UI", 12, FontStyle.Bold),
+            ForeColor = Color.FromArgb(51, 51, 51),
+            Location = new Point(20, 85),
             Size = new Size(300, 25),
             AutoSize = true
         };
         this.Controls.Add(welcomeLabel);
 
-        // Balance card
+        // Balance card with modern styling
         var balancePanel = new Panel
         {
-            Location = new Point(20, 100),
-            Size = new Size(350, 120),
+            Location = new Point(20, 120),
+            Size = new Size(350, 140),
             BackColor = Color.White,
             BorderStyle = BorderStyle.FixedSingle
         };
@@ -140,39 +157,39 @@ public partial class Form1 : Form
 
         sendPaymentBtn = new Button
         {
-            Text = "Send Payment",
+            Text = "💸 Send Payment",
             BackColor = Color.FromArgb(255, 107, 53),
             ForeColor = Color.White,
-            Font = new Font("Segoe UI", 10),
+            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            FlatStyle = FlatStyle.Flat,
             Location = new Point(15, 50),
-            Size = new Size(160, 35),
-            FlatStyle = FlatStyle.Flat
+            Size = new Size(160, 40)
         };
         sendPaymentBtn.Click += SendPaymentBtn_Click;
         actionsPanel.Controls.Add(sendPaymentBtn);
 
         receivePaymentBtn = new Button
         {
-            Text = "Receive Payment",
+            Text = "💰 Receive Payment",
             BackColor = Color.FromArgb(76, 175, 80),
             ForeColor = Color.White,
-            Font = new Font("Segoe UI", 10),
+            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            FlatStyle = FlatStyle.Flat,
             Location = new Point(185, 50),
-            Size = new Size(160, 35),
-            FlatStyle = FlatStyle.Flat
+            Size = new Size(160, 40)
         };
         receivePaymentBtn.Click += ReceivePaymentBtn_Click;
         actionsPanel.Controls.Add(receivePaymentBtn);
 
         nfcPaymentBtn = new Button
         {
-            Text = "Accept NFC Payment",
+            Text = "📱 Accept NFC Payment",
             BackColor = Color.FromArgb(33, 150, 243),
             ForeColor = Color.White,
-            Font = new Font("Segoe UI", 10),
-            Location = new Point(15, 95),
-            Size = new Size(330, 35),
-            FlatStyle = FlatStyle.Flat
+            Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            FlatStyle = FlatStyle.Flat,
+            Location = new Point(15, 100),
+            Size = new Size(330, 40)
         };
         nfcPaymentBtn.Click += NFCPaymentBtn_Click;
         actionsPanel.Controls.Add(nfcPaymentBtn);
@@ -451,6 +468,7 @@ public partial class Form1 : Form
         }
     }
 }
+
 
 public class Transaction
 {
