@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using KaratFlowAvalonia.Services;
 
 namespace KaratFlowAvalonia.ViewModels;
 
@@ -22,6 +23,10 @@ public partial class MainWindowViewModel : ViewModelBase
     private string _paymentDescription = string.Empty;
     private string _nfcStatus = "Ready to accept payment";
     private bool _isNFCProcessing = false;
+    private bool _useRealNFC = true; // Toggle for real vs simulated NFC
+    
+    // NFC Service
+    private INFCService _nfcService;
     
     // Transactions
     private List<Transaction> _transactions = new List<Transaction>
@@ -90,6 +95,55 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public List<Transaction> Transactions => _transactions.OrderByDescending(t => t.CreatedAt).ToList();
     
+    public bool UseRealNFC
+    {
+        get => _useRealNFC;
+        set => SetProperty(ref _useRealNFC, value);
+    }
+    
+    public MainWindowViewModel()
+    {
+        _nfcService = NFCServiceFactory.CreateNFCService();
+        
+        // Subscribe to NFC service events
+        _nfcService.CardDetected += OnCardDetected;
+        _nfcService.StatusChanged += OnNFCStatusChanged;
+        _nfcService.ErrorOccurred += OnNFCErrorOccurred;
+        
+        // Initialize NFC service
+        _ = InitializeNFCServiceAsync();
+    }
+    
+    private async Task InitializeNFCServiceAsync()
+    {
+        try
+        {
+            await _nfcService.InitializeAsync();
+        }
+        catch (Exception ex)
+        {
+            // Fall back to simulated NFC if real NFC fails
+            UseRealNFC = false;
+            NFCStatus = "Real NFC unavailable, using simulation";
+        }
+    }
+    
+    private void OnCardDetected(NFCCard card)
+    {
+        NFCStatus = $"Card detected: {card.CardNumber}";
+    }
+    
+    private void OnNFCStatusChanged(string status)
+    {
+        NFCStatus = status;
+    }
+    
+    private void OnNFCErrorOccurred(NFCError error)
+    {
+        NFCStatus = $"Error: {error.Message}";
+        IsNFCProcessing = false;
+    }
+    
     [RelayCommand]
     private void ShowSendPayment()
     {
@@ -109,6 +163,70 @@ public partial class MainWindowViewModel : ViewModelBase
         IsNFCSectionVisible = true;
         IsPaymentSectionVisible = false;
         IsNFCProcessing = true;
+        
+        if (UseRealNFC)
+        {
+            await ProcessRealNFCPaymentAsync();
+        }
+        else
+        {
+            await ProcessSimulatedNFCPaymentAsync();
+        }
+    }
+    
+    private async Task ProcessRealNFCPaymentAsync()
+    {
+        try
+        {
+            // Detect real NFC card
+            var card = await _nfcService.DetectCardAsync();
+            
+            if (card != null)
+            {
+                NFCStatus = $"Processing payment from {card.CardNumber}...";
+                
+                // Process payment with real NFC service
+                var result = await _nfcService.ProcessPaymentAsync(card, 0, 0);
+                
+                if (result.Success)
+                {
+                    // Update balance
+                    CurrentBalance += result.Amount;
+                    
+                    // Add transaction
+                    _transactions.Add(new Transaction 
+                    { 
+                        FromUser = "NFC Card", 
+                        ToUser = CurrentUsername, 
+                        Amount = result.Amount, 
+                        Description = "NFC Card Payment", 
+                        CreatedAt = DateTime.UtcNow 
+                    });
+                    
+                    OnPropertyChanged(nameof(Transactions));
+                    
+                    NFCStatus = $"✅ Payment received: {result.Amount:N0} Karats";
+                }
+                else
+                {
+                    NFCStatus = $"❌ Payment failed: {result.Message}";
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            NFCStatus = $"❌ NFC Error: {ex.Message}";
+        }
+        finally
+        {
+            IsNFCProcessing = false;
+            await Task.Delay(2000);
+            IsNFCSectionVisible = false;
+        }
+    }
+    
+    private async Task ProcessSimulatedNFCPaymentAsync()
+    {
         NFCStatus = "Scanning for NFC cards...";
         
         // Simulate NFC card detection
