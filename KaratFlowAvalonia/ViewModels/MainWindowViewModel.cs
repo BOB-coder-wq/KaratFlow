@@ -5,15 +5,21 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using KaratFlowAvalonia.Services;
+using KaratFlowAvalonia.Models;
 
 namespace KaratFlowAvalonia.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
+    // Database service
+    private readonly EmbeddedDatabaseService _databaseService;
+    
+    // NFC Service
+    private readonly INFCService _nfcService;
+    
     // User data
-    private decimal _currentBalance = 10000;
-    private string _currentUsername = "admin";
-    private string _currentAccountNumber = "KF000000001";
+    private User? _currentUser;
+    private Account? _currentAccount;
     
     // UI state
     private bool _isPaymentSectionVisible = false;
@@ -25,31 +31,31 @@ public partial class MainWindowViewModel : ViewModelBase
     private bool _isNFCProcessing = false;
     private bool _useRealNFC = true; // Toggle for real vs simulated NFC
     
-    // NFC Service
-    private INFCService _nfcService;
-    
     // Transactions
-    private List<Transaction> _transactions = new List<Transaction>
-    {
-        new Transaction { FromUser = "admin", ToUser = "alice", Amount = 500, Description = "Welcome bonus", CreatedAt = DateTime.UtcNow.AddDays(-5) },
-        new Transaction { FromUser = "alice", ToUser = "bob", Amount = 150, Description = "Coffee payment", CreatedAt = DateTime.UtcNow.AddDays(-1) },
-        new Transaction { FromUser = "bob", ToUser = "charlie", Amount = 75, Description = "Lunch split", CreatedAt = DateTime.UtcNow.AddDays(-2) }
-    };
+    private List<Transaction> _transactions = new List<Transaction>();
 
     public string Greeting => "💎 Karat Flow - Digital Currency";
-    public string Subtitle => "Cross-Platform Digital Currency System";
-    public string WelcomeMessage => $"Welcome back, Admin User!";
+    public string Subtitle => "Self-Contained Digital Currency System";
+    public string WelcomeMessage => $"Welcome back, {_currentUser?.Username ?? "User"}!";
     public string BalanceDisplay => $"{CurrentBalance:N0} Karats";
     public string AccountDisplay => $"Account: {CurrentAccountNumber}";
+    public string DatabasePath => _databaseService.GetDatabasePath();
     
     public decimal CurrentBalance
     {
-        get => _currentBalance;
-        set => SetProperty(ref _currentBalance, value);
+        get => _currentAccount?.Balance ?? 0;
+        set 
+        { 
+            if (_currentAccount != null)
+            {
+                _currentAccount.Balance = value;
+                SetProperty(ref _currentAccount.Balance, value);
+            }
+        }
     }
     
-    public string CurrentUsername => _currentUsername;
-    public string CurrentAccountNumber => _currentAccountNumber;
+    public string CurrentUsername => _currentUser?.Username ?? "Unknown";
+    public string CurrentAccountNumber => _currentAccount?.AccountNumber ?? "Unknown";
     
     public bool IsPaymentSectionVisible
     {
@@ -103,6 +109,7 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
+        _databaseService = new EmbeddedDatabaseService();
         _nfcService = NFCServiceFactory.CreateNFCService();
         
         // Subscribe to NFC service events
@@ -110,15 +117,38 @@ public partial class MainWindowViewModel : ViewModelBase
         _nfcService.StatusChanged += OnNFCStatusChanged;
         _nfcService.ErrorOccurred += OnNFCErrorOccurred;
         
-        // Initialize NFC service
-        _ = InitializeNFCServiceAsync();
+        // Initialize services
+        _ = InitializeServicesAsync();
     }
     
-    private async Task InitializeNFCServiceAsync()
+    private async Task InitializeServicesAsync()
     {
         try
         {
+            // Initialize database
+            await _databaseService.InitializeAsync();
+            
+            // Load current user (admin for demo)
+            _currentUser = await _databaseService.GetUserByUsernameAsync("admin");
+            if (_currentUser != null)
+            {
+                _currentAccount = _currentUser.Accounts.FirstOrDefault();
+            }
+            
+            // Load transactions
+            if (_currentAccount != null)
+            {
+                _transactions = await _databaseService.GetTransactionsAsync(_currentAccount.Id);
+            }
+            
+            // Initialize NFC service
             await _nfcService.InitializeAsync();
+            
+            // Notify UI of changes
+            OnPropertyChanged(nameof(CurrentBalance));
+            OnPropertyChanged(nameof(CurrentUsername));
+            OnPropertyChanged(nameof(CurrentAccountNumber));
+            OnPropertyChanged(nameof(Transactions));
         }
         catch (Exception ex)
         {
@@ -128,7 +158,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
     
-    private void OnCardDetected(NFCCard card)
+    private void OnCardDetected(ServiceNFCCard card)
     {
         NFCStatus = $"Card detected: {card.CardNumber}";
     }
@@ -181,35 +211,27 @@ public partial class MainWindowViewModel : ViewModelBase
             // Detect real NFC card
             var card = await _nfcService.DetectCardAsync();
             
-            if (card != null)
+            if (card != null && _currentAccount != null)
             {
                 NFCStatus = $"Processing payment from {card.CardNumber}...";
                 
-                // Process payment with real NFC service
-                var result = await _nfcService.ProcessPaymentAsync(card, 0, 0);
+                // Process payment with database
+                var success = await _databaseService.ProcessNFCPaymentAsync(
+                    card.CardNumber, 
+                    card.Balance, 
+                    _currentAccount.Id
+                );
                 
-                if (result.Success)
+                if (success)
                 {
-                    // Update balance
-                    CurrentBalance += result.Amount;
+                    // Reload data
+                    await ReloadUserDataAsync();
                     
-                    // Add transaction
-                    _transactions.Add(new Transaction 
-                    { 
-                        FromUser = "NFC Card", 
-                        ToUser = CurrentUsername, 
-                        Amount = result.Amount, 
-                        Description = "NFC Card Payment", 
-                        CreatedAt = DateTime.UtcNow 
-                    });
-                    
-                    OnPropertyChanged(nameof(Transactions));
-                    
-                    NFCStatus = $"✅ Payment received: {result.Amount:N0} Karats";
+                    NFCStatus = $"✅ Payment received: {card.Balance:N0} Karats";
                 }
                 else
                 {
-                    NFCStatus = $"❌ Payment failed: {result.Message}";
+                    NFCStatus = $"❌ Payment failed";
                 }
             }
         }
@@ -265,36 +287,63 @@ public partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     private async Task SendPayment()
     {
-        if (PaymentAmount > 0 && !string.IsNullOrWhiteSpace(RecipientUsername))
+        if (PaymentAmount > 0 && !string.IsNullOrWhiteSpace(RecipientUsername) && _currentAccount != null)
         {
             if (PaymentAmount > CurrentBalance)
             {
-                // Show error message
+                NFCStatus = "Insufficient balance!";
                 return;
             }
 
-            // Update balance
-            CurrentBalance -= PaymentAmount;
-            
-            // Add transaction
-            _transactions.Add(new Transaction 
-            { 
-                FromUser = CurrentUsername, 
-                ToUser = RecipientUsername, 
-                Amount = PaymentAmount, 
-                Description = string.IsNullOrWhiteSpace(PaymentDescription) 
-                    ? $"Payment to {RecipientUsername}" 
-                    : PaymentDescription, 
-                CreatedAt = DateTime.UtcNow 
-            });
-            
-            OnPropertyChanged(nameof(Transactions));
-            
-            // Clear form
-            RecipientUsername = string.Empty;
-            PaymentAmount = 0;
-            PaymentDescription = string.Empty;
-            IsPaymentSectionVisible = false;
+            try
+            {
+                // Get recipient account
+                var recipientUser = await _databaseService.GetUserByUsernameAsync(RecipientUsername);
+                if (recipientUser == null)
+                {
+                    NFCStatus = "Recipient not found!";
+                    return;
+                }
+
+                var recipientAccount = recipientUser.Accounts.FirstOrDefault();
+                if (recipientAccount == null)
+                {
+                    NFCStatus = "Recipient has no account!";
+                    return;
+                }
+
+                // Process payment through database
+                var success = await _databaseService.ProcessPaymentAsync(
+                    _currentAccount.Id, 
+                    recipientAccount.Id, 
+                    PaymentAmount, 
+                    string.IsNullOrWhiteSpace(PaymentDescription) 
+                        ? $"Payment to {RecipientUsername}" 
+                        : PaymentDescription
+                );
+
+                if (success)
+                {
+                    // Reload data
+                    await ReloadUserDataAsync();
+                    
+                    NFCStatus = $"✅ Successfully sent {PaymentAmount:N0} Karats to {RecipientUsername}!";
+                    
+                    // Clear form
+                    RecipientUsername = string.Empty;
+                    PaymentAmount = 0;
+                    PaymentDescription = string.Empty;
+                    IsPaymentSectionVisible = false;
+                }
+                else
+                {
+                    NFCStatus = "❌ Payment failed!";
+                }
+            }
+            catch (Exception ex)
+            {
+                NFCStatus = $"❌ Error: {ex.Message}";
+            }
         }
     }
     
@@ -310,13 +359,20 @@ public partial class MainWindowViewModel : ViewModelBase
         IsNFCSectionVisible = false;
         IsNFCProcessing = false;
     }
-}
-
-public class Transaction
-{
-    public string FromUser { get; set; } = string.Empty;
-    public string ToUser { get; set; } = string.Empty;
-    public decimal Amount { get; set; }
-    public string Description { get; set; } = string.Empty;
-    public DateTime CreatedAt { get; set; }
+    
+    private async Task ReloadUserDataAsync()
+    {
+        if (_currentAccount != null)
+        {
+            // Reload account data
+            _currentAccount = await _databaseService.GetAccountByNumberAsync(_currentAccount.AccountNumber);
+            
+            // Reload transactions
+            _transactions = await _databaseService.GetTransactionsAsync(_currentAccount.Id);
+            
+            // Notify UI of changes
+            OnPropertyChanged(nameof(CurrentBalance));
+            OnPropertyChanged(nameof(Transactions));
+        }
+    }
 }

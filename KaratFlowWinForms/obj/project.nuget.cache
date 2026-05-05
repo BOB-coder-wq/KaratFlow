@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "nBwDUl7Rw7s=",
+  "dgSpecHash": "JVsy+x1GPqY=",
   "success": true,
   "projectFilePath": "C:\\Users\\abind\\Game Dev\\C++ Games\\Karat Flow\\Karat Flow\\KaratFlowWinForms\\KaratFlowWinForms.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\abind\\.nuget\\packages\\microsoft.net.illink.tasks\\9.0.10\\microsoft.net.illink.tasks.9.0.10.nupkg.sha512",
+    "C:\\Users\\abind\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.10\\microsoft.netcore.app.runtime.win-x64.9.0.10.nupkg.sha512",
+    "C:\\Users\\abind\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.10\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.10.nupkg.sha512",
+    "C:\\Users\\abind\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.10\\microsoft.aspnetcore.app.runtime.win-x64.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

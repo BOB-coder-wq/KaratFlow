@@ -1,0 +1,2 @@
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\deploy\standalone\KaratFlowWinForms.pdb
+C:\Users\abind\Game Dev\C++ Games\Karat Flow\Karat Flow\deploy\standalone\KaratFlowWinForms.exe

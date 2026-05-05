@@ -6,14 +6,14 @@ namespace KaratFlowAvalonia.Services
 {
     public interface INFCService
     {
-        event Action<NFCCard>? CardDetected;
+        event Action<ServiceNFCCard>? CardDetected;
         event Action<string>? StatusChanged;
         event Action<NFCError>? ErrorOccurred;
         
         Task<bool> InitializeAsync();
-        Task<NFCCard?> DetectCardAsync();
-        Task<NFCPaymentResult> ProcessPaymentAsync(NFCCard card, decimal amount, int receivingAccountId);
-        Task<bool> ValidateCardAsync(NFCCard card);
+        Task<ServiceNFCCard?> DetectCardAsync();
+        Task<NFCPaymentResult> ProcessPaymentAsync(ServiceNFCCard card, decimal amount, int receivingAccountId);
+        Task<bool> ValidateCardAsync(ServiceNFCCard card);
         void StopListening();
     }
 
@@ -33,18 +33,18 @@ namespace KaratFlowAvalonia.Services
         public DateTime ProcessedAt { get; set; }
     }
 
-    public class NFCCard
+    public class ServiceNFCCard
     {
         public string CardNumber { get; set; } = string.Empty;
         public string UID { get; set; } = string.Empty;
         public string CardType { get; set; } = string.Empty;
         public DateTime ExpiresAt { get; set; }
         public decimal Balance { get; set; }
-        public NFCStatus Status { get; set; }
+        public ServiceNFCStatus Status { get; set; }
         public Dictionary<string, string> Metadata { get; set; } = new();
     }
 
-    public enum NFCStatus
+    public enum ServiceNFCStatus
     {
         Active,
         Inactive,
