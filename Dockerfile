@@ -3,12 +3,12 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy csproj and restore
-COPY KaratFlowAPI.csproj ./
-RUN dotnet restore
+COPY KaratFlowAPI/KaratFlowAPI.csproj ./KaratFlowAPI/
+RUN cd KaratFlowAPI && dotnet restore
 
 # Copy everything and build
-COPY . ./
-RUN dotnet publish -c Release -o /app/publish --no-restore
+COPY KaratFlowAPI/ ./KaratFlowAPI/
+RUN cd KaratFlowAPI && dotnet publish -c Release -o /app/publish --no-restore
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
