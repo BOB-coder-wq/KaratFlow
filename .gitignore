@@ -98,3 +98,17 @@ temp/
 # Deployment packages
 deploy/*/publish/
 deploy/*/dist/
+deploy/standalone/
+deploy/multi-user/
+deploy/cloud-package/
+
+# Avalonia specific
+KaratFlowAvalonia/bin/
+KaratFlowAvalonia/obj/
+KaratFlowAvalonia/packages/
+
+# Windows Forms specific
+KaratFlowMultiUser/bin/
+KaratFlowMultiUser/obj/
+KaratFlowStandalone/bin/
+KaratFlowStandalone/obj/

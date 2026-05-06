@@ -1,0 +1,12 @@
+# GitHub Setup Commands
+
+# After creating the repository on GitHub, run these commands:
+
+git remote add origin https://github.com/YOUR_USERNAME/karatflow.git
+git branch -M main
+git push -u origin main
+
+# Replace YOUR_USERNAME with your actual GitHub username
+
+# Your repository will be available at:
+# https://github.com/YOUR_USERNAME/karatflow
