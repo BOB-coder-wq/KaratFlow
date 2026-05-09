@@ -1,5 +1,8 @@
-﻿using Avalonia;
+using Avalonia;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.IO;
 
 namespace KaratFlowAvalonia;
 
@@ -20,5 +23,19 @@ sealed class Program
             .WithDeveloperTools()
 #endif
             .WithInterFont()
-            .LogToTrace();
+            .LogToTrace()
+            .ConfigureServices((context, services) =>
+            {
+                // Configuration
+                var configuration = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                    .Build();
+
+                services.AddSingleton<IConfiguration>(configuration);
+                
+                // Services
+                services.AddSingleton<Services.LocalAuthService>();
+                services.AddSingleton<Services.GoogleOAuthService>();
+            });
 }

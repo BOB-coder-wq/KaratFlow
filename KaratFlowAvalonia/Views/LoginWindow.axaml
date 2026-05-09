@@ -1,0 +1,152 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
+        x:Class="KaratFlowAvalonia.Views.LoginWindow"
+        Title="Karat Flow - Login"
+        Width="400" Height="500"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+
+    <Design.DataContext>
+        <vm:LoginWindowViewModel xmlns:vm="clr-namespace:KaratFlowAvalonia.ViewModels"/>
+    </Design.DataContext>
+
+    <Grid Background="LinearGradientBrush(StartPoint=0%,0%, EndPoint=100%,100%)">
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#FF6B35" Offset="0%"/>
+                <GradientStop Color="#F72B1C" Offset="100%"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Border Background="White" CornerRadius="15" Margin="20" Padding="30" BoxShadow.DropShadow(0,4,20,Black,0.3)">
+            <StackPanel Spacing="20">
+                <!-- Header -->
+                <StackPanel HorizontalAlignment="Center" Spacing="10">
+                    <TextBlock Text="💎" FontSize="48" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Karat Flow" FontSize="24" FontWeight="Bold" 
+                              Foreground="#333333" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Digital Currency System" FontSize="14" 
+                              Foreground="#666666" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Login Form -->
+                <StackPanel Spacing="15" IsVisible="{Binding IsLoginMode}">
+                    <TextBox Name="UsernameTextBox" 
+                             Text="{Binding Username}" 
+                             Watermark="Username" 
+                             FontSize="14"
+                             Padding="12,8"/>
+                    
+                    <PasswordBox Name="PasswordTextBox" 
+                                 Password="{Binding Password}" 
+                                 Watermark="Password" 
+                                 FontSize="14"
+                                 Padding="12,8"/>
+                    
+                    <Button Content="🔐 Login" 
+                            Command="{Binding LoginCommand}"
+                            Background="#FF6B35" 
+                            Foreground="White"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Padding="0,12"
+                            CornerRadius="8"
+                            IsEnabled="{Binding !IsLoading}"/>
+                </StackPanel>
+
+                <!-- Create Account Form -->
+                <StackPanel Spacing="15" IsVisible="{Binding IsCreateAccountMode}">
+                    <TextBox Name="NewUsernameTextBox" 
+                             Text="{Binding Username}" 
+                             Watermark="Username" 
+                             FontSize="14"
+                             Padding="12,8"/>
+                    
+                    <TextBox Name="EmailTextBox" 
+                             Text="{Binding Email}" 
+                             Watermark="Email" 
+                             FontSize="14"
+                             Padding="12,8"/>
+                    
+                    <PasswordBox Name="NewPasswordTextBox" 
+                                 Password="{Binding Password}" 
+                                 Watermark="Password" 
+                                 FontSize="14"
+                                 Padding="12,8"/>
+                    
+                    <PasswordBox Name="ConfirmPasswordTextBox" 
+                                 Password="{Binding ConfirmPassword}" 
+                                 Watermark="Confirm Password" 
+                                 FontSize="14"
+                                 Padding="12,8"/>
+                    
+                    <Button Content="🚀 Create Account" 
+                            Command="{Binding CreateAccountCommand}"
+                            Background="#FF6B35" 
+                            Foreground="White"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Padding="0,12"
+                            CornerRadius="8"
+                            IsEnabled="{Binding !IsLoading}"/>
+                </StackPanel>
+
+                <!-- Google Sign-In -->
+                <Button Content="🔐 Sign in with Google" 
+                        Command="{Binding GoogleSignInCommand}"
+                        Background="#4285F4" 
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Padding="0,12"
+                        CornerRadius="8"
+                        IsEnabled="{Binding !IsLoading}"/>
+
+                <!-- Mode Toggle -->
+                <StackPanel HorizontalAlignment="Center" Spacing="10">
+                    <Button Content="Create Account" 
+                            Command="{Binding ShowCreateAccountModeCommand}"
+                            Background="Transparent"
+                            Foreground="#FF6B35"
+                            FontSize="14"
+                            Padding="0"
+                            IsVisible="{Binding IsLoginMode}"/>
+                    
+                    <Button Content="Back to Login" 
+                            Command="{Binding ShowLoginModeCommand}"
+                            Background="Transparent"
+                            Foreground="#FF6B35"
+                            FontSize="14"
+                            Padding="0"
+                            IsVisible="{Binding IsCreateAccountMode}"/>
+                </StackPanel>
+
+                <!-- Error Message -->
+                <Border Background="#FFE5E5" CornerRadius="8" Padding="15" 
+                        IsVisible="{Binding HasError}">
+                    <TextBlock Text="{Binding ErrorMessage}" 
+                              Foreground="#D32F2F" 
+                              FontSize="14"
+                              TextWrapping="Wrap"/>
+                </Border>
+
+                <!-- Loading Indicator -->
+                <StackPanel HorizontalAlignment="Center" Spacing="10" 
+                            IsVisible="{Binding IsLoading}">
+                    <ProgressBar IsIndeterminate="True" 
+                                 Width="200" 
+                                 Height="4"
+                                 Background="#E0E0E0"
+                                 Foreground="#FF6B35"/>
+                    <TextBlock Text="Processing..." 
+                              Foreground="#666666" 
+                              FontSize="14"
+                              HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,240 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using KaratFlowAvalonia.Models;
+
+namespace KaratFlowAvalonia.Services
+{
+    public class LocalAuthService
+    {
+        private readonly Dictionary<string, User> _users;
+        private User? _currentUser;
+
+        public LocalAuthService()
+        {
+            _users = new Dictionary<string, User>();
+            _currentUser = null;
+        }
+
+        public async Task<LoginResponse> LoginAsync(string username, string password)
+        {
+            try
+            {
+                var userKey = username.ToLower();
+                if (_users.ContainsKey(userKey))
+                {
+                    var user = _users[userKey];
+                    if (VerifyPassword(password, user.PasswordHash))
+                    {
+                        user.IsLoggedIn = true;
+                        user.LastLogin = DateTime.Now;
+                        _currentUser = user;
+
+                        return new LoginResponse 
+                        { 
+                            Success = true, 
+                            Message = "Login successful",
+                            User = user,
+                            Token = GenerateToken(user)
+                        };
+                    }
+                }
+
+                return new LoginResponse 
+                { 
+                    Success = false, 
+                    Message = "Invalid username or password" 
+                };
+            }
+            catch (Exception ex)
+            {
+                return new LoginResponse 
+                { 
+                    Success = false, 
+                    Message = $"Login failed: {ex.Message}" 
+                };
+            }
+        }
+
+        public async Task<LoginResponse> CreateAccountAsync(string username, string email, string password, string confirmPassword)
+        {
+            try
+            {
+                // Validation
+                if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+                {
+                    return new LoginResponse 
+                    { 
+                        Success = false, 
+                        Message = "All fields are required" 
+                    };
+                }
+
+                if (password != confirmPassword)
+                {
+                    return new LoginResponse 
+                    { 
+                        Success = false, 
+                        Message = "Passwords do not match" 
+                    };
+                }
+
+                if (password.Length < 6)
+                {
+                    return new LoginResponse 
+                    { 
+                        Success = false, 
+                        Message = "Password must be at least 6 characters" 
+                    };
+                }
+
+                var userKey = username.ToLower();
+                if (_users.ContainsKey(userKey))
+                {
+                    return new LoginResponse 
+                    { 
+                        Success = false, 
+                        Message = "Username already exists" 
+                    };
+                }
+
+                // Create new user
+                var newUser = new User
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Username = username,
+                    Email = email,
+                    PasswordHash = HashPassword(password),
+                    IsLoggedIn = true,
+                    LastLogin = DateTime.Now,
+                    AvatarUrl = User.GenerateGravatarUrl(email, username)
+                };
+
+                _users[userKey] = newUser;
+                _currentUser = newUser;
+
+                return new LoginResponse 
+                { 
+                    Success = true, 
+                    Message = "Account created successfully",
+                    User = newUser,
+                    Token = GenerateToken(newUser)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new LoginResponse 
+                { 
+                    Success = false, 
+                    Message = $"Account creation failed: {ex.Message}" 
+                };
+            }
+        }
+
+        public async Task<LoginResponse> LoginWithGoogleAsync(string googleId, string email, string name, string picture)
+        {
+            try
+            {
+                // Check if user exists
+                var existingUser = _users.Values.FirstOrDefault(u => u.GoogleId == googleId || u.Email == email);
+                
+                if (existingUser != null)
+                {
+                    // Update existing user
+                    existingUser.IsLoggedIn = true;
+                    existingUser.LastLogin = DateTime.Now;
+                    if (!string.IsNullOrEmpty(picture))
+                    {
+                        existingUser.AvatarUrl = picture;
+                    }
+                    _currentUser = existingUser;
+
+                    return new LoginResponse 
+                    { 
+                        Success = true, 
+                        Message = "Google login successful",
+                        User = existingUser,
+                        Token = GenerateToken(existingUser)
+                    };
+                }
+                else
+                {
+                    // Create new user from Google
+                    var newUser = new User
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Username = name.Replace(" ", "").ToLower(),
+                        Email = email,
+                        GoogleId = googleId,
+                        IsLoggedIn = true,
+                        LastLogin = DateTime.Now,
+                        AvatarUrl = picture ?? User.GenerateGravatarUrl(email, name)
+                    };
+
+                    _users[newUser.Username.ToLower()] = newUser;
+                    _currentUser = newUser;
+
+                    return new LoginResponse 
+                    { 
+                        Success = true, 
+                        Message = "Google account created successfully",
+                        User = newUser,
+                        Token = GenerateToken(newUser)
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new LoginResponse 
+                { 
+                    Success = false, 
+                    Message = $"Google login failed: {ex.Message}" 
+                };
+            }
+        }
+
+        public User? GetCurrentUser()
+        {
+            return _currentUser;
+        }
+
+        public void Logout()
+        {
+            if (_currentUser != null)
+            {
+                _currentUser.IsLoggedIn = false;
+                _currentUser = null;
+            }
+        }
+
+        private string HashPassword(string password)
+        {
+            using var sha256 = SHA256.Create();
+            var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            return Convert.ToBase64String(hashedBytes);
+        }
+
+        private bool VerifyPassword(string password, string hashedPassword)
+        {
+            var hash = HashPassword(password);
+            return hash == hashedPassword;
+        }
+
+        private string GenerateToken(User user)
+        {
+            // Simple token generation - in production, use JWT
+            return $"token_{user.Id}_{DateTime.UtcNow.Ticks}";
+        }
+    }
+
+    public class LoginResponse
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; } = string.Empty;
+        public User? User { get; set; }
+        public string Token { get; set; } = string.Empty;
+    }
+}
