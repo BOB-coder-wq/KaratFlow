@@ -106,6 +106,17 @@ namespace KaratFlowAvalonia.ViewModels
                     return;
                 }
 
+                // Demo mode: Allow any login with password "demo123"
+                if (Password == "demo123")
+                {
+                    var demoUser = Models.User.CreateGuest();
+                    demoUser.Username = Username;
+                    demoUser.Email = $"{Username.ToLower()}@karatflow.demo";
+                    CurrentUser = demoUser;
+                    OnLoginSuccess();
+                    return;
+                }
+                
                 var response = await _authService.LoginAsync(Username, Password);
                 
                 if (response.Success && response.User != null)
@@ -115,7 +126,7 @@ namespace KaratFlowAvalonia.ViewModels
                 }
                 else
                 {
-                    ErrorMessage = response.Message;
+                    ErrorMessage = response.Message + " (Try password 'demo123' for demo access)";
                 }
             }
             catch (Exception ex)
@@ -142,6 +153,17 @@ namespace KaratFlowAvalonia.ViewModels
                     return;
                 }
 
+                // Demo mode: Allow any account creation with password "demo123"
+                if (Password == "demo123")
+                {
+                    var demoUser = Models.User.CreateGuest();
+                    demoUser.Username = Username;
+                    demoUser.Email = Email;
+                    CurrentUser = demoUser;
+                    OnLoginSuccess();
+                    return;
+                }
+                
                 var response = await _authService.CreateAccountAsync(Username, Email, Password, ConfirmPassword);
                 
                 if (response.Success && response.User != null)
@@ -151,7 +173,7 @@ namespace KaratFlowAvalonia.ViewModels
                 }
                 else
                 {
-                    ErrorMessage = response.Message;
+                    ErrorMessage = response.Message + " (Try password 'demo123' for demo access)";
                 }
             }
             catch (Exception ex)

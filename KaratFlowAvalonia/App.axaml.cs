@@ -21,32 +21,9 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            // Show login window instead of main window
-            var loginWindow = new LoginWindow();
-            
-            // Subscribe to login success event
-            if (loginWindow.DataContext is ViewModels.LoginWindowViewModel loginViewModel)
-            {
-                loginViewModel.LoginSuccess += (sender, e) =>
-                {
-                    // Get the logged-in user
-                    var user = loginViewModel.CurrentUser;
-                    if (user != null)
-                    {
-                        // Create and show main window with user data
-                        var mainWindow = new MainWindow();
-                        var mainViewModel = new MainWindowViewModel();
-                        mainViewModel.SetCurrentUser(user);
-                        mainWindow.DataContext = mainViewModel;
-                        mainWindow.Show();
-                        
-                        // Close login window
-                        loginWindow.Close();
-                    }
-                };
-            }
-            
-            desktop.MainWindow = loginWindow;
+            // Show simple demo window instead of main window
+            var demoWindow = new SimpleDemoWindow();
+            desktop.MainWindow = demoWindow;
         }
 
         base.OnFrameworkInitializationCompleted();

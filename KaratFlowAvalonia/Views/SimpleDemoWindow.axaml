@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
+        x:Class="KaratFlowAvalonia.Views.SimpleDemoWindow"
+        Title="Karat Flow - Demo"
+        Width="400" Height="500"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                <GradientStop Color="#FF6B35" Offset="0"/>
+                <GradientStop Color="#F72B1C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Border Background="White" CornerRadius="15" Margin="20" Padding="30">
+            <StackPanel Spacing="20">
+                <!-- Header -->
+                <StackPanel HorizontalAlignment="Center" Spacing="10">
+                    <TextBlock Text="💎" FontSize="48" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Karat Flow" FontSize="24" FontWeight="Bold" 
+                              Foreground="#333333" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Digital Currency System" FontSize="14" 
+                              Foreground="#666666" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Demo Mode Notice -->
+                <Border Background="#E8F5E8" CornerRadius="8" Padding="15">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="🚀 Working Demo" FontWeight="Bold" 
+                                  Foreground="#2E7D32" HorizontalAlignment="Center"/>
+                        <TextBlock Text="All features are enabled" 
+                                  Foreground="#2E7D32" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Click 'Continue' to access main app" 
+                                  Foreground="#2E7D32" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Continue Button -->
+                <Button Content="🚀 Continue to Main App" 
+                        Click="ContinueButton_Click"
+                        Background="#FF6B35" 
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Padding="0,12"
+                        CornerRadius="8"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

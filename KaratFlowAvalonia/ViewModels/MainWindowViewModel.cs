@@ -289,6 +289,7 @@ public partial class MainWindowViewModel : ViewModelBase
             });
             
             OnPropertyChanged(nameof(Transactions));
+            OnPropertyChanged(nameof(BalanceDisplay));
             
             // Clear form
             RecipientUsername = string.Empty;
