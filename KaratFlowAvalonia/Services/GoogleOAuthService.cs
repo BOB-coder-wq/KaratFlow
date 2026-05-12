@@ -18,9 +18,13 @@ namespace KaratFlowAvalonia.Services
         public GoogleOAuthService(IConfiguration configuration)
         {
             _httpClient = new HttpClient();
-            _clientId = configuration["GoogleOAuth:ClientId"] ?? "";
-            _clientSecret = configuration["GoogleOAuth:ClientSecret"] ?? "";
-            _redirectUri = configuration["GoogleOAuth:RedirectUri"] ?? "http://localhost:5000/auth/google/callback";
+            var credentialManager = new SecureCredentialManager(configuration);
+            _clientId = credentialManager.GoogleClientId;
+            _clientSecret = credentialManager.GoogleClientSecret;
+            _redirectUri = credentialManager.GoogleRedirectUri;
+            
+            Console.WriteLine($"🔐 Using secure credential manager");
+            Console.WriteLine($"🌐 Real credentials loaded: {credentialManager.HasRealCredentials()}");
         }
 
         public string GetAuthorizationUrl()

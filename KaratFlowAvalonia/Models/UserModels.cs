@@ -57,8 +57,20 @@ namespace KaratFlowAvalonia.Models
                 }
                 var emailHash = sb.ToString();
                 
-                // Gravatar URL with default avatar
-                return $"https://www.gravatar.com/avatar/{emailHash}?s=128&d=identicon&r=pg";
+                // Get Gravatar API key from secure credential manager
+                var credentialManager = new SecureCredentialManager(null);
+                var gravatarApiKey = credentialManager.GravatarApiKey;
+                
+                if (!string.IsNullOrEmpty(gravatarApiKey))
+                {
+                    // Gravatar URL with real API key
+                    return $"https://www.gravatar.com/avatar/{emailHash}?s=128&d=identicon&r=pg&apikey={gravatarApiKey}";
+                }
+                else
+                {
+                    // Gravatar URL with default avatar
+                    return $"https://www.gravatar.com/avatar/{emailHash}?s=128&d=identicon&r=pg";
+                }
             }
             else
             {
