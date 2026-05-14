@@ -35,10 +35,11 @@ namespace KaratFlowAvalonia.Services
 
         private string GetSecureCredential(string key, string fallback)
         {
-            // Priority order: Environment > Secure File > appsettings.json > fallback
-            return Environment.GetEnvironmentVariable(key) 
-                   ?? GetSecureFileCredential(key, fallback) 
-                   ?? GetAppsettingsCredential(key, fallback);
+            // Priority order: appsettings.json > Environment > Secure File > fallback
+            // For end users, appsettings.json is primary (contains developer credentials)
+            return GetAppsettingsCredential(key, fallback)
+                   ?? Environment.GetEnvironmentVariable(key) 
+                   ?? GetSecureFileCredential(key, fallback);
         }
 
         private string GetSecureFileCredential(string key, string fallback)

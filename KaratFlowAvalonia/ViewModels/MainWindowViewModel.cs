@@ -25,8 +25,9 @@ public partial class MainWindowViewModel : ViewModelBase
     private bool _isNFCProcessing = false;
     private bool _useRealNFC = true; // Toggle for real vs simulated NFC
     
-    // NFC Service
+    // Services
     private INFCService _nfcService;
+    private PersistenceService _persistenceService;
     
     // Transactions
     private List<Transaction> _transactions = new List<Transaction>
@@ -103,7 +104,11 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
+        _persistenceService = new PersistenceService();
+        _transactions = _persistenceService.LoadTransactions();
         _nfcService = NFCServiceFactory.CreateNFCService();
+        
+        Console.WriteLine($"💾 Loaded {_transactions.Count} transactions from persistent storage");
         
         // Subscribe to NFC service events
         _nfcService.CardDetected += OnCardDetected;
@@ -287,6 +292,8 @@ public partial class MainWindowViewModel : ViewModelBase
                     : PaymentDescription, 
                 CreatedAt = DateTime.UtcNow 
             });
+            
+            _persistenceService.SaveTransactions(_transactions);
             
             OnPropertyChanged(nameof(Transactions));
             OnPropertyChanged(nameof(BalanceDisplay));

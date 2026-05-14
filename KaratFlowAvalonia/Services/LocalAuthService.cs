@@ -12,16 +12,19 @@ namespace KaratFlowAvalonia.Services
     {
         private readonly Dictionary<string, User> _users;
         private User? _currentUser;
+        private readonly PersistenceService _persistenceService;
 
         public LocalAuthService()
         {
-            _users = new Dictionary<string, User>();
+            _persistenceService = new PersistenceService();
+            _users = _persistenceService.LoadUsers();
             _currentUser = null;
             
             // Initialize secure credential manager
             var credentialManager = new SecureCredentialManager(null);
             Console.WriteLine($"🔐 LocalAuthService initialized with secure credentials");
             Console.WriteLine($"👤 Gravatar ready: {credentialManager.HasGravatarCredentials}");
+            Console.WriteLine($"💾 Loaded {_users.Count} users from persistent storage");
         }
 
         public async Task<LoginResponse> LoginAsync(string username, string password)
@@ -37,6 +40,7 @@ namespace KaratFlowAvalonia.Services
                         user.IsLoggedIn = true;
                         user.LastLogin = DateTime.Now;
                         _currentUser = user;
+                        _persistenceService.SaveUsers(_users);
 
                         return new LoginResponse 
                         { 
@@ -120,6 +124,7 @@ namespace KaratFlowAvalonia.Services
 
                 _users[userKey] = newUser;
                 _currentUser = newUser;
+                _persistenceService.SaveUsers(_users);
 
                 return new LoginResponse 
                 { 
@@ -181,6 +186,7 @@ namespace KaratFlowAvalonia.Services
 
                     _users[newUser.Username.ToLower()] = newUser;
                     _currentUser = newUser;
+                    _persistenceService.SaveUsers(_users);
 
                     return new LoginResponse 
                     { 
@@ -212,7 +218,25 @@ namespace KaratFlowAvalonia.Services
             {
                 _currentUser.IsLoggedIn = false;
                 _currentUser = null;
+                _persistenceService.SaveUsers(_users);
             }
+        }
+
+        public void UpdateUserBalance(string username, decimal newBalance)
+        {
+            var userKey = username.ToLower();
+            if (_users.ContainsKey(userKey))
+            {
+                _users[userKey].Balance = newBalance;
+                _persistenceService.SaveUsers(_users);
+                Console.WriteLine($"💰 Updated balance for {username}: {newBalance} karats");
+            }
+        }
+
+        public User? GetUserByUsername(string username)
+        {
+            var userKey = username.ToLower();
+            return _users.ContainsKey(userKey) ? _users[userKey] : null;
         }
 
         private string HashPassword(string password)

@@ -15,6 +15,7 @@ namespace KaratFlowAvalonia.Models
         public string PasswordHash { get; set; } = string.Empty;
         public bool IsLoggedIn { get; set; }
         public DateTime LastLogin { get; set; }
+        public decimal Balance { get; set; } = 0;
 
         public static User CreateGuest()
         {
