@@ -21,7 +21,7 @@ namespace KaratFlowAvalonia.Services
             // Initialize secure credential manager
             var credentialManager = new SecureCredentialManager(null);
             Console.WriteLine($"🔐 LocalAuthService initialized with secure credentials");
-            Console.WriteLine($"👤 Gravatar ready: {credentialManager.HasGravatarCredentials()}");
+            Console.WriteLine($"👤 Gravatar ready: {credentialManager.HasGravatarCredentials}");
         }
 
         public async Task<LoginResponse> LoginAsync(string username, string password)

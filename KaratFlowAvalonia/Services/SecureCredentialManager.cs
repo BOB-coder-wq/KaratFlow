@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace KaratFlowAvalonia.Services
 {
@@ -11,16 +12,16 @@ namespace KaratFlowAvalonia.Services
         public SecureCredentialManager(IConfiguration configuration)
         {
             _configuration = configuration;
-        LoadSecureCredentials();
-        CreateSecureConfigTemplate();
-        LoadEnvironmentCredentials();
-        SaveSecureCredentials();
-        Console.WriteLine($"🔐 Secure Credential Manager initialized");
-        Console.WriteLine($"📁 Environment fallback enabled");
-        Console.WriteLine($"🔒 Template-based config available");
-        Console.WriteLine($"🌐 Real credentials loaded: {HasRealCredentials()}");
-        Console.WriteLine($"🔑 Google OAuth ready: {HasGoogleCredentials()}");
-            Console.WriteLine($"👤 Gravatar ready: {HasGravatarCredentials()}");
+            LoadSecureCredentials();
+            CreateSecureConfigTemplate();
+            LoadEnvironmentCredentials();
+            SaveSecureCredentials();
+            Console.WriteLine($"🔐 Secure Credential Manager initialized");
+            Console.WriteLine($"📁 Environment fallback enabled");
+            Console.WriteLine($"🔒 Template-based config available");
+            Console.WriteLine($"🌐 Real credentials loaded: {HasRealCredentials}");
+            Console.WriteLine($"🔑 Google OAuth ready: {HasGoogleCredentials}");
+            Console.WriteLine($"👤 Gravatar ready: {HasGravatarCredentials}");
         }
 
         public string GoogleClientId => GetSecureCredential("GoogleOAuth:ClientId", "YOUR_GOOGLE_CLIENT_ID");
@@ -28,7 +29,7 @@ namespace KaratFlowAvalonia.Services
         public string GoogleRedirectUri => GetSecureCredential("GoogleOAuth:RedirectUri", "http://localhost:5000/callback");
         public string GravatarApiKey => GetSecureCredential("Gravatar:ApiKey", "YOUR_GRAVATAR_API_KEY");
 
-        public bool HasRealCredentials => HasGoogleCredentials() && HasGravatarCredentials();
+        public bool HasRealCredentials => HasGoogleCredentials && HasGravatarCredentials;
         public bool HasGoogleCredentials => !string.IsNullOrEmpty(GoogleClientId) && GoogleClientId != "YOUR_GOOGLE_CLIENT_ID";
         public bool HasGravatarCredentials => !string.IsNullOrEmpty(GravatarApiKey) && GravatarApiKey != "YOUR_GRAVATAR_API_KEY";
 
@@ -36,11 +37,11 @@ namespace KaratFlowAvalonia.Services
         {
             // Priority order: Environment > Secure File > appsettings.json > fallback
             return Environment.GetEnvironmentVariable(key) 
-                   ?? GetSecureFileCredential(key) 
+                   ?? GetSecureFileCredential(key, fallback) 
                    ?? GetAppsettingsCredential(key, fallback);
         }
 
-        private string GetSecureFileCredential(string key)
+        private string GetSecureFileCredential(string key, string fallback)
         {
             try
             {
@@ -95,7 +96,7 @@ namespace KaratFlowAvalonia.Services
                 var templateFile = Path.Combine(secureDir, "credentials.template.json");
                 if (!File.Exists(templateFile))
                 {
-                    var template = new
+                    var template = new Dictionary<string, string>
                     {
                         ["GoogleOAuth:ClientId"] = "YOUR_GOOGLE_CLIENT_ID",
                         ["GoogleOAuth:ClientSecret"] = "YOUR_GOOGLE_CLIENT_SECRET",
@@ -116,7 +117,7 @@ namespace KaratFlowAvalonia.Services
 
         private void SaveSecureCredentials()
         {
-            if (HasRealCredentials())
+            if (HasRealCredentials)
             {
                 try
                 {

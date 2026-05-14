@@ -24,7 +24,7 @@ namespace KaratFlowAvalonia.Services
             _redirectUri = credentialManager.GoogleRedirectUri;
             
             Console.WriteLine($"🔐 Using secure credential manager");
-            Console.WriteLine($"🌐 Real credentials loaded: {credentialManager.HasRealCredentials()}");
+            Console.WriteLine($"🌐 Real credentials loaded: {credentialManager.HasRealCredentials}");
         }
 
         public string GetAuthorizationUrl()
