@@ -107,3 +107,7 @@ C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\bin\Debug\net9.0\r
 C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\obj\Debug\net9.0\KaratFlo.2219DD92.Up2Date
 C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\obj\Debug\net9.0\KaratFlowAvalonia.genruntimeconfig.cache
 C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\obj\Debug\net9.0\ref\KaratFlowAvalonia.dll
+C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\bin\Debug\net9.0\Firebase.dll
+C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\bin\Debug\net9.0\LiteDB.dll
+C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\abind\Game Dev\C++ Games\KaratFlow\KaratFlowAvalonia\bin\Debug\net9.0\System.Reactive.dll

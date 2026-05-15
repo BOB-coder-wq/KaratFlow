@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[8.4.1, )"
             },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[9.0.0, )"

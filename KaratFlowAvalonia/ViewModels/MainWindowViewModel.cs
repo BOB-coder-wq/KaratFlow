@@ -27,7 +27,7 @@ public partial class MainWindowViewModel : ViewModelBase
     
     // Services
     private INFCService _nfcService;
-    private PersistenceService _persistenceService;
+    private FirebaseService _firebaseService;
     
     // Transactions
     private List<Transaction> _transactions = new List<Transaction>
@@ -104,11 +104,18 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
-        _persistenceService = new PersistenceService();
-        _transactions = _persistenceService.LoadTransactions();
+        // Initialize Firebase service
+        var firebaseUrl = "https://karatflow-default-rtdb.firebaseio.com";
+        var firebaseSecret = "YOUR_FIREBASE_DATABASE_SECRET";
+        _firebaseService = new FirebaseService(firebaseUrl, firebaseSecret);
+        
+        // Load transactions from Firebase (async, but we'll do it synchronously for now)
+        _transactions = new List<Transaction>();
+        _ = LoadTransactionsFromFirebaseAsync();
+        
         _nfcService = NFCServiceFactory.CreateNFCService();
         
-        Console.WriteLine($"💾 Loaded {_transactions.Count} transactions from persistent storage");
+        Console.WriteLine($"🔥 Firebase service initialized for transactions");
         
         // Subscribe to NFC service events
         _nfcService.CardDetected += OnCardDetected;
@@ -119,6 +126,20 @@ public partial class MainWindowViewModel : ViewModelBase
         _ = InitializeNFCServiceAsync();
     }
     
+    private async Task LoadTransactionsFromFirebaseAsync()
+    {
+        try
+        {
+            var transactions = await _firebaseService.LoadTransactionsAsync();
+            _transactions = transactions;
+            Console.WriteLine($"💾 Loaded {_transactions.Count} transactions from Firebase");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"⚠️  Error loading transactions from Firebase: {ex.Message}");
+        }
+    }
+
     private async Task InitializeNFCServiceAsync()
     {
         try
@@ -293,7 +314,7 @@ public partial class MainWindowViewModel : ViewModelBase
                 CreatedAt = DateTime.UtcNow 
             });
             
-            _persistenceService.SaveTransactions(_transactions);
+            _ = _firebaseService.SaveTransactionsAsync(_transactions);
             
             OnPropertyChanged(nameof(Transactions));
             OnPropertyChanged(nameof(BalanceDisplay));

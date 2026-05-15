@@ -12,19 +12,42 @@ namespace KaratFlowAvalonia.Services
     {
         private readonly Dictionary<string, User> _users;
         private User? _currentUser;
-        private readonly PersistenceService _persistenceService;
+        private readonly FirebaseService _firebaseService;
 
         public LocalAuthService()
         {
-            _persistenceService = new PersistenceService();
-            _users = _persistenceService.LoadUsers();
+            // Initialize Firebase service
+            var firebaseUrl = "https://karatflow-default-rtdb.firebaseio.com";
+            var firebaseSecret = "YOUR_FIREBASE_DATABASE_SECRET";
+            _firebaseService = new FirebaseService(firebaseUrl, firebaseSecret);
+            
+            // Load users from Firebase (async, but we'll do it synchronously for now)
+            _users = new Dictionary<string, User>();
+            _ = LoadUsersFromFirebaseAsync();
+            
             _currentUser = null;
             
             // Initialize secure credential manager
             var credentialManager = new SecureCredentialManager(null);
-            Console.WriteLine($"🔐 LocalAuthService initialized with secure credentials");
+            Console.WriteLine($"🔐 LocalAuthService initialized with Firebase");
             Console.WriteLine($"👤 Gravatar ready: {credentialManager.HasGravatarCredentials}");
-            Console.WriteLine($"💾 Loaded {_users.Count} users from persistent storage");
+        }
+
+        private async Task LoadUsersFromFirebaseAsync()
+        {
+            try
+            {
+                var users = await _firebaseService.LoadUsersAsync();
+                foreach (var userPair in users)
+                {
+                    _users[userPair.Key] = userPair.Value;
+                }
+                Console.WriteLine($"💾 Loaded {_users.Count} users from Firebase");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️  Error loading users from Firebase: {ex.Message}");
+            }
         }
 
         public async Task<LoginResponse> LoginAsync(string username, string password)
@@ -40,7 +63,7 @@ namespace KaratFlowAvalonia.Services
                         user.IsLoggedIn = true;
                         user.LastLogin = DateTime.Now;
                         _currentUser = user;
-                        _persistenceService.SaveUsers(_users);
+                        _ = _firebaseService.SaveUserAsync(userKey, user);
 
                         return new LoginResponse 
                         { 
@@ -124,7 +147,7 @@ namespace KaratFlowAvalonia.Services
 
                 _users[userKey] = newUser;
                 _currentUser = newUser;
-                _persistenceService.SaveUsers(_users);
+                _ = _firebaseService.SaveUserAsync(userKey, newUser);
 
                 return new LoginResponse 
                 { 
@@ -186,7 +209,7 @@ namespace KaratFlowAvalonia.Services
 
                     _users[newUser.Username.ToLower()] = newUser;
                     _currentUser = newUser;
-                    _persistenceService.SaveUsers(_users);
+                    _ = _firebaseService.SaveUserAsync(newUser.Username.ToLower(), newUser);
 
                     return new LoginResponse 
                     { 
@@ -217,8 +240,9 @@ namespace KaratFlowAvalonia.Services
             if (_currentUser != null)
             {
                 _currentUser.IsLoggedIn = false;
+                var userKey = _currentUser.Username.ToLower();
+                _ = _firebaseService.SaveUserAsync(userKey, _currentUser);
                 _currentUser = null;
-                _persistenceService.SaveUsers(_users);
             }
         }
 
@@ -228,7 +252,7 @@ namespace KaratFlowAvalonia.Services
             if (_users.ContainsKey(userKey))
             {
                 _users[userKey].Balance = newBalance;
-                _persistenceService.SaveUsers(_users);
+                _ = _firebaseService.SaveUserAsync(userKey, _users[userKey]);
                 Console.WriteLine($"💰 Updated balance for {username}: {newBalance} karats");
             }
         }
