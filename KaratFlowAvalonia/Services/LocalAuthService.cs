@@ -16,8 +16,8 @@ namespace KaratFlowAvalonia.Services
 
         public LocalAuthService()
         {
-            // Initialize Firebase service
-            var firebaseUrl = "https://karatflow-default-rtdb.firebaseio.com";
+            // Initialize Firebase service with URL and secret
+            var firebaseUrl = "https://karat-flow-default-rtdb.firebaseio.com";
             var firebaseSecret = "YOUR_FIREBASE_DATABASE_SECRET";
             _firebaseService = new FirebaseService(firebaseUrl, firebaseSecret);
             
