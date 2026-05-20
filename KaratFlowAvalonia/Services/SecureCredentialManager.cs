@@ -28,6 +28,8 @@ namespace KaratFlowAvalonia.Services
         public string GoogleClientSecret => GetSecureCredential("GoogleOAuth:ClientSecret", "YOUR_GOOGLE_CLIENT_SECRET");
         public string GoogleRedirectUri => GetSecureCredential("GoogleOAuth:RedirectUri", "http://localhost:5000/callback");
         public string GravatarApiKey => GetSecureCredential("Gravatar:ApiKey", "YOUR_GRAVATAR_API_KEY");
+        public string FirebaseUrl => GetSecureCredential("Firebase:Url", "https://karatflow-default-rtdb.firebaseio.com");
+        public string FirebaseSecret => GetSecureCredential("Firebase:Secret", "YOUR_FIREBASE_DATABASE_SECRET");
 
         public bool HasRealCredentials => HasGoogleCredentials && HasGravatarCredentials;
         public bool HasGoogleCredentials => !string.IsNullOrEmpty(GoogleClientId) && GoogleClientId != "YOUR_GOOGLE_CLIENT_ID";
@@ -35,11 +37,50 @@ namespace KaratFlowAvalonia.Services
 
         private string GetSecureCredential(string key, string fallback)
         {
-            // Priority order: appsettings.json > Environment > Secure File > fallback
-            // For end users, appsettings.json is primary (contains developer credentials)
-            return GetAppsettingsCredential(key, fallback)
+            // Priority order: appsettings.Local.json > appsettings.json > Environment > Secure File > fallback
+            // For end users, appsettings.Local.json is primary (contains real credentials)
+            return GetLocalAppsettingsCredential(key, fallback)
+                   ?? GetAppsettingsCredential(key, fallback)
                    ?? Environment.GetEnvironmentVariable(key) 
                    ?? GetSecureFileCredential(key, fallback);
+        }
+
+        private string GetLocalAppsettingsCredential(string key, string fallback)
+        {
+            try
+            {
+                var localConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "appsettings.Local.json");
+                if (File.Exists(localConfigPath))
+                {
+                    var localConfigJson = File.ReadAllText(localConfigPath);
+                    var localConfig = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(localConfigJson);
+                    if (localConfig != null)
+                    {
+                        var keyParts = key.Split(':');
+                        var current = localConfig;
+                        foreach (var part in keyParts)
+                        {
+                            if (current.ContainsKey(part) && current[part] is Dictionary<string, object> dict)
+                            {
+                                current = dict;
+                            }
+                            else if (current.ContainsKey(part))
+                            {
+                                var value = current[part]?.ToString();
+                                if (!string.IsNullOrEmpty(value))
+                                {
+                                    return value;
+                                }
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private string GetSecureFileCredential(string key, string fallback)

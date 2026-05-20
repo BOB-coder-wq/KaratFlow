@@ -104,9 +104,12 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
-        // Initialize Firebase service with URL and secret
-        var firebaseUrl = "https://karat-flow-default-rtdb.firebaseio.com";
-        var firebaseSecret = "YOUR_FIREBASE_DATABASE_SECRET";
+        // Initialize secure credential manager
+        var credentialManager = new SecureCredentialManager(null);
+        
+        // Initialize Firebase service with credentials from secure credential manager
+        var firebaseUrl = credentialManager.FirebaseUrl;
+        var firebaseSecret = credentialManager.FirebaseSecret;
         _firebaseService = new FirebaseService(firebaseUrl, firebaseSecret);
         
         // Load transactions from Firebase (async, but we'll do it synchronously for now)

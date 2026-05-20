@@ -16,9 +16,12 @@ namespace KaratFlowAvalonia.Services
 
         public LocalAuthService()
         {
-            // Initialize Firebase service with URL and secret
-            var firebaseUrl = "https://karat-flow-default-rtdb.firebaseio.com";
-            var firebaseSecret = "YOUR_FIREBASE_DATABASE_SECRET";
+            // Initialize secure credential manager
+            var credentialManager = new SecureCredentialManager(null);
+            
+            // Initialize Firebase service with credentials from secure credential manager
+            var firebaseUrl = credentialManager.FirebaseUrl;
+            var firebaseSecret = credentialManager.FirebaseSecret;
             _firebaseService = new FirebaseService(firebaseUrl, firebaseSecret);
             
             // Load users from Firebase (async, but we'll do it synchronously for now)
@@ -27,8 +30,6 @@ namespace KaratFlowAvalonia.Services
             
             _currentUser = null;
             
-            // Initialize secure credential manager
-            var credentialManager = new SecureCredentialManager(null);
             Console.WriteLine($"🔐 LocalAuthService initialized with Firebase");
             Console.WriteLine($"👤 Gravatar ready: {credentialManager.HasGravatarCredentials}");
         }

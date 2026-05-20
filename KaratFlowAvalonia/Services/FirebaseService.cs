@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
@@ -14,14 +15,37 @@ namespace KaratFlowAvalonia.Services
         private readonly string _usersPath = "users";
         private readonly string _transactionsPath = "transactions";
 
-        public FirebaseService(string firebaseUrl, string firebaseSecret = "")
+        public FirebaseService(string firebaseUrl, string firebaseSecret = "", string serviceAccountPath = "")
         {
             try
             {
-                var clientOptions = new FirebaseOptions
+                FirebaseOptions clientOptions;
+
+                // Use service account if provided, otherwise use secret
+                if (!string.IsNullOrEmpty(serviceAccountPath) && File.Exists(serviceAccountPath))
                 {
-                    AuthTokenAsyncFactory = () => Task.FromResult(firebaseSecret)
-                };
+                    // Read service account JSON and extract the private key
+                    var serviceAccountJson = File.ReadAllText(serviceAccountPath);
+                    var serviceAccount = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(serviceAccountJson);
+                    
+                    // For FirebaseDatabase.net, we need to use the database secret or Firebase Auth
+                    // The service account is for Firebase Admin SDK, not FirebaseDatabase.net
+                    // We'll use the secret as fallback
+                    Console.WriteLine($"⚠️  Service account provided but FirebaseDatabase.net requires database secret");
+                    Console.WriteLine($"   Using secret authentication instead");
+                    
+                    clientOptions = new FirebaseOptions
+                    {
+                        AuthTokenAsyncFactory = () => Task.FromResult(firebaseSecret)
+                    };
+                }
+                else
+                {
+                    clientOptions = new FirebaseOptions
+                    {
+                        AuthTokenAsyncFactory = () => Task.FromResult(firebaseSecret)
+                    };
+                }
 
                 _firebaseClient = new FirebaseClient(firebaseUrl, clientOptions);
                 Console.WriteLine($"🔥 Firebase service initialized");
