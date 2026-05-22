@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KaratFlowAvalonia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bda287e2414a5748ddc8812997c9e662d89027e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8cf1964f74914960e4d8d488639f3b39cdc7b762")]
 [assembly: System.Reflection.AssemblyProductAttribute("KaratFlowAvalonia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KaratFlowAvalonia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -109,6 +109,20 @@ namespace KaratFlowAvalonia.Views
             messageBox.ShowDialog(this);
         }
 
+        private void FullscreenButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal || WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.FullScreen;
+                CanResize = true;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+                CanResize = false;
+            }
+        }
+
         private void DemoUserButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             // Create demo user

@@ -29,6 +29,7 @@ public partial class MainWindowViewModel : ViewModelBase
     // Services
     private INFCService _nfcService;
     private FirebaseService _firebaseService;
+    private LocalAuthService _authService;
     
     // Transactions
     private List<Transaction> _transactions = new List<Transaction>
@@ -109,8 +110,23 @@ public partial class MainWindowViewModel : ViewModelBase
         set => SetProperty(ref _useRealNFC, value);
     }
     
+    public IRelayCommand SendPaymentCommand { get; }
+    public IRelayCommand CancelPaymentCommand { get; }
+    public IRelayCommand ShowSendPaymentCommand { get; }
+    public IRelayCommand ShowReceivePaymentCommand { get; }
+    public IRelayCommand ShowNFCPaymentCommand { get; }
+    public IRelayCommand CancelNFCCommand { get; }
+    
     public MainWindowViewModel(KaratFlowAvalonia.Models.User? user = null)
     {
+        // Initialize commands
+        SendPaymentCommand = new RelayCommand(async () => await SendPayment());
+        CancelPaymentCommand = new RelayCommand(CancelPayment);
+        ShowSendPaymentCommand = new RelayCommand(ShowSendPayment);
+        ShowReceivePaymentCommand = new RelayCommand(ShowReceivePayment);
+        ShowNFCPaymentCommand = new RelayCommand(async () => await ShowNFCPayment());
+        CancelNFCCommand = new RelayCommand(CancelNFC);
+        
         // Set user data from logged-in user
         if (user != null)
         {
@@ -126,6 +142,10 @@ public partial class MainWindowViewModel : ViewModelBase
         var firebaseUrl = credentialManager.FirebaseUrl;
         var firebaseSecret = credentialManager.FirebaseSecret;
         _firebaseService = new FirebaseService(firebaseUrl, firebaseSecret);
+        
+        // Initialize LocalAuthService with Firebase connection
+        _authService = new LocalAuthService();
+        Console.WriteLine($"🔥 LocalAuthService initialized for payments");
         
         // Load transactions from Firebase (async, but we'll do it synchronously for now)
         _transactions = new List<Transaction>();
@@ -188,20 +208,17 @@ public partial class MainWindowViewModel : ViewModelBase
         IsNFCProcessing = false;
     }
     
-    [RelayCommand]
     private void ShowSendPayment()
     {
         IsPaymentSectionVisible = true;
         IsNFCSectionVisible = false;
     }
     
-    [RelayCommand]
     private void ShowReceivePayment()
     {
         // Show account details dialog
     }
     
-    [RelayCommand]
     private async Task ShowNFCPayment()
     {
         IsNFCSectionVisible = true;
@@ -306,20 +323,14 @@ public partial class MainWindowViewModel : ViewModelBase
         IsNFCSectionVisible = false;
     }
     
-    [RelayCommand]
     private async Task SendPayment()
     {
         if (PaymentAmount > 0 && !string.IsNullOrWhiteSpace(RecipientUsername))
         {
-            if (PaymentAmount > CurrentBalance)
-            {
-                PaymentStatus = "❌ Insufficient balance";
-                return;
-            }
-
-            // Check if recipient exists in Firebase
-            var authService = new LocalAuthService();
-            var recipient = authService.GetUserByUsername(RecipientUsername);
+            PaymentStatus = "⏳ Checking recipient...";
+            
+            // Check if recipient exists in Firebase using the initialized auth service
+            var recipient = _authService.GetUserByUsername(RecipientUsername);
             
             if (recipient == null)
             {
@@ -327,14 +338,28 @@ public partial class MainWindowViewModel : ViewModelBase
                 return;
             }
 
-            // Update balance
-            CurrentBalance -= PaymentAmount;
+            // Check sender's balance
+            if (PaymentAmount > CurrentBalance)
+            {
+                PaymentStatus = "❌ Insufficient balance";
+                return;
+            }
+
+            PaymentStatus = "⏳ Processing payment...";
             
-            // Update recipient's balance
-            authService.UpdateUserBalance(RecipientUsername, recipient.Balance + PaymentAmount);
+            // Update sender's balance in Firebase
+            var newSenderBalance = CurrentBalance - PaymentAmount;
+            _authService.UpdateUserBalance(CurrentUsername, newSenderBalance);
+            
+            // Update local balance
+            CurrentBalance = newSenderBalance;
+            
+            // Update recipient's balance in Firebase
+            var newRecipientBalance = recipient.Balance + PaymentAmount;
+            _authService.UpdateUserBalance(RecipientUsername, newRecipientBalance);
             
             // Add transaction
-            _transactions.Add(new Transaction 
+            var newTransaction = new Transaction 
             { 
                 FromUser = CurrentUsername, 
                 ToUser = RecipientUsername, 
@@ -343,9 +368,14 @@ public partial class MainWindowViewModel : ViewModelBase
                     ? $"Payment to {RecipientUsername}" 
                     : PaymentDescription, 
                 CreatedAt = DateTime.UtcNow 
-            });
+            };
             
+            _transactions.Add(newTransaction);
+            
+            // Save transactions to Firebase
             _ = _firebaseService.SaveTransactionsAsync(_transactions);
+            
+            PaymentStatus = $"✅ Successfully sent {PaymentAmount} Karats to {RecipientUsername}";
             
             OnPropertyChanged(nameof(Transactions));
             OnPropertyChanged(nameof(BalanceDisplay));
@@ -358,13 +388,11 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
     
-    [RelayCommand]
     private void CancelPayment()
     {
         IsPaymentSectionVisible = false;
     }
     
-    [RelayCommand]
     private void CancelNFC()
     {
         IsNFCSectionVisible = false;

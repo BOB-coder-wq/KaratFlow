@@ -150,12 +150,31 @@ namespace KaratFlowAvalonia.Services
         {
             try
             {
-                var user = await _firebaseClient
+                // Try to get all users and find the matching one
+                var allUsers = await _firebaseClient
                     .Child(_usersPath)
-                    .Child(username.ToLower())
-                    .OnceSingleAsync<User>();
+                    .OnceSingleAsync<Dictionary<string, User>>();
                 
-                return user;
+                Console.WriteLine($"🔍 Loaded {allUsers?.Count ?? 0} users from Firebase");
+                if (allUsers != null)
+                {
+                    foreach (var userKey in allUsers.Keys)
+                    {
+                        Console.WriteLine($"  - User key: {userKey}");
+                    }
+                }
+                
+                var searchKey = username.ToLower();
+                Console.WriteLine($"🔍 Searching for user: {searchKey}");
+                
+                if (allUsers != null && allUsers.ContainsKey(searchKey))
+                {
+                    Console.WriteLine($"🔍 Found user: {username}");
+                    return allUsers[searchKey];
+                }
+                
+                Console.WriteLine($"🔍 User not found: {username}");
+                return null;
             }
             catch (Exception ex)
             {

@@ -261,7 +261,30 @@ namespace KaratFlowAvalonia.Services
         public User? GetUserByUsername(string username)
         {
             var userKey = username.ToLower();
-            return _users.ContainsKey(userKey) ? _users[userKey] : null;
+            
+            // Always query Firebase to get the most up-to-date data
+            try
+            {
+                var task = _firebaseService.GetUserAsync(userKey);
+                if (task.Wait(TimeSpan.FromSeconds(5)) && task.Result != null)
+                {
+                    // Update cache
+                    _users[userKey] = task.Result;
+                    return task.Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading user from Firebase: {ex.Message}");
+            }
+            
+            // Fallback to cache if Firebase query fails
+            if (_users.ContainsKey(userKey))
+            {
+                return _users[userKey];
+            }
+            
+            return null;
         }
 
         private string HashPassword(string password)
