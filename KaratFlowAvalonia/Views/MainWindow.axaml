@@ -159,7 +159,13 @@
                                      Height="60"
                                      Margin="0,0,0,15"/>
                             
-                            <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
+                            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                      Text="{Binding PaymentStatus}"
+                                      Foreground="#FF6B35"
+                                      FontWeight="SemiBold"
+                                      Margin="0,0,0,10"/>
+                            
+                            <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
                                         Orientation="Horizontal" 
                                         HorizontalAlignment="Left">
                                 <Button Content="Send Payment" 
@@ -176,12 +182,6 @@
                                         Padding="15,8"
                                         CornerRadius="8"/>
                             </StackPanel>
-                            
-                            <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
-                                      Text="{Binding PaymentStatus}"
-                                      Foreground="#FF6B35"
-                                      FontWeight="SemiBold"
-                                      Margin="0,10,0,0"/>
                         </Grid>
                     </StackPanel>
                 </Border>
