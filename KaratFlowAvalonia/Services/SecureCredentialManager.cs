@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace KaratFlowAvalonia.Services
 {
@@ -53,25 +54,44 @@ namespace KaratFlowAvalonia.Services
                 if (File.Exists(localConfigPath))
                 {
                     var localConfigJson = File.ReadAllText(localConfigPath);
-                    var localConfig = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(localConfigJson);
+                    var localConfig = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(localConfigJson);
                     if (localConfig != null)
                     {
                         var keyParts = key.Split(':');
-                        var current = localConfig;
-                        foreach (var part in keyParts)
+                        JsonElement current = default;
+                        
+                        // Start with the first key
+                        if (localConfig.ContainsKey(keyParts[0]))
                         {
-                            if (current.ContainsKey(part) && current[part] is Dictionary<string, object> dict)
+                            current = localConfig[keyParts[0]];
+                        }
+                        else
+                        {
+                            return null;
+                        }
+
+                        // Navigate through nested properties
+                        for (int i = 1; i < keyParts.Length; i++)
+                        {
+                            var part = keyParts[i];
+                            if (current.ValueKind == JsonValueKind.Object && current.TryGetProperty(part, out var nextElement))
                             {
-                                current = dict;
+                                current = nextElement;
                             }
-                            else if (current.ContainsKey(part))
+                            else
                             {
-                                var value = current[part]?.ToString();
-                                if (!string.IsNullOrEmpty(value))
-                                {
-                                    return value;
-                                }
+                                return null;
                             }
+                        }
+
+                        // Return the final value as string
+                        if (current.ValueKind == JsonValueKind.String)
+                        {
+                            return current.GetString();
+                        }
+                        else
+                        {
+                            return current.ToString();
                         }
                     }
                 }

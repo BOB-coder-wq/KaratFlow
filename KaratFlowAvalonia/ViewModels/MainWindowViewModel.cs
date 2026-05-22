@@ -11,8 +11,8 @@ namespace KaratFlowAvalonia.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     // User data
-    private decimal _currentBalance = 10000;
-    private string _currentUsername = "admin";
+    private decimal _currentBalance = 0;
+    private string _currentUsername = string.Empty;
     private string _currentAccountNumber = "KF000000001";
     
     // UI state
@@ -21,6 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
     private string _recipientUsername = string.Empty;
     private decimal _paymentAmount = 0;
     private string _paymentDescription = string.Empty;
+    private string _paymentStatus = string.Empty;
     private string _nfcStatus = "Ready to accept payment";
     private bool _isNFCProcessing = false;
     private bool _useRealNFC = true; // Toggle for real vs simulated NFC
@@ -39,7 +40,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public string Greeting => "💎 Karat Flow - Digital Currency";
     public string Subtitle => "Cross-Platform Digital Currency System";
-    public string WelcomeMessage => $"Welcome back, Admin User!";
+    public string WelcomeMessage => string.IsNullOrEmpty(_currentUsername) ? "Welcome!" : $"Welcome back, {_currentUsername}!";
     public string BalanceDisplay => $"{CurrentBalance:N0} Karats";
     public string AccountDisplay => $"Account: {CurrentAccountNumber}";
     
@@ -82,6 +83,12 @@ public partial class MainWindowViewModel : ViewModelBase
         set => SetProperty(ref _paymentDescription, value);
     }
     
+    public string PaymentStatus
+    {
+        get => _paymentStatus;
+        set => SetProperty(ref _paymentStatus, value);
+    }
+    
     public string NFCStatus
     {
         get => _nfcStatus;
@@ -102,8 +109,16 @@ public partial class MainWindowViewModel : ViewModelBase
         set => SetProperty(ref _useRealNFC, value);
     }
     
-    public MainWindowViewModel()
+    public MainWindowViewModel(KaratFlowAvalonia.Models.User? user = null)
     {
+        // Set user data from logged-in user
+        if (user != null)
+        {
+            _currentUsername = user.Username;
+            _currentBalance = user.Balance;
+            _currentAccountNumber = $"KF{user.Id.Substring(0, 8).ToUpper()}";
+        }
+        
         // Initialize secure credential manager
         var credentialManager = new SecureCredentialManager(null);
         
@@ -298,12 +313,25 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             if (PaymentAmount > CurrentBalance)
             {
-                // Show error message
+                PaymentStatus = "❌ Insufficient balance";
+                return;
+            }
+
+            // Check if recipient exists in Firebase
+            var authService = new LocalAuthService();
+            var recipient = authService.GetUserByUsername(RecipientUsername);
+            
+            if (recipient == null)
+            {
+                PaymentStatus = $"❌ User '{RecipientUsername}' does not exist";
                 return;
             }
 
             // Update balance
             CurrentBalance -= PaymentAmount;
+            
+            // Update recipient's balance
+            authService.UpdateUserBalance(RecipientUsername, recipient.Balance + PaymentAmount);
             
             // Add transaction
             _transactions.Add(new Transaction 

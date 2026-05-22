@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
         x:Class="KaratFlowAvalonia.Views.SimpleDemoWindow"
-        Title="Karat Flow - Demo"
+        Title="Karat Flow - Login"
         Width="400" Height="500"
         CanResize="False"
         WindowStartupLocation="CenterScreen">
@@ -28,27 +28,51 @@
                               Foreground="#666666" HorizontalAlignment="Center"/>
                 </StackPanel>
 
-                <!-- Demo Mode Notice -->
-                <Border Background="#E8F5E8" CornerRadius="8" Padding="15">
-                    <StackPanel Spacing="10">
-                        <TextBlock Text="🚀 Working Demo" FontWeight="Bold" 
-                                  Foreground="#2E7D32" HorizontalAlignment="Center"/>
-                        <TextBlock Text="All features are enabled" 
-                                  Foreground="#2E7D32" HorizontalAlignment="Center"/>
-                        <TextBlock Text="Click 'Continue' to access main app" 
-                                  Foreground="#2E7D32" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Border>
+                <!-- Login Form -->
+                <StackPanel Spacing="15">
+                    <TextBox x:Name="UsernameTextBox" Watermark="Username" 
+                             FontSize="14" Padding="10" CornerRadius="8"/>
+                    <TextBox x:Name="PasswordTextBox" Watermark="Password" 
+                             FontSize="14" Padding="10" CornerRadius="8" PasswordChar="*"/>
+                    
+                    <Button Content="🔐 Login" 
+                            Click="LoginButton_Click"
+                            Background="#FF6B35" 
+                            Foreground="White"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            Padding="0,12"
+                            CornerRadius="8"/>
+                    
+                    <Button Content="📝 Create Account" 
+                            Click="CreateAccountButton_Click"
+                            Background="#4CAF50" 
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Padding="0,10"
+                            CornerRadius="8"/>
+                    
+                    <Button Content="🔑 Sign in with Google" 
+                            Click="GoogleSignInButton_Click"
+                            Background="#4285F4" 
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="SemiBold"
+                            Padding="0,10"
+                            CornerRadius="8"/>
+                </StackPanel>
 
-                <!-- Continue Button -->
-                <Button Content="🚀 Continue to Main App" 
-                        Click="ContinueButton_Click"
-                        Background="#FF6B35" 
+                <!-- Demo User Button (Corner) -->
+                <Button Content="🎭 Demo User" 
+                        Click="DemoUserButton_Click"
+                        Background="#9E9E9E" 
                         Foreground="White"
-                        FontSize="16"
+                        FontSize="12"
                         FontWeight="SemiBold"
-                        Padding="0,12"
-                        CornerRadius="8"/>
+                        Padding="0,8"
+                        CornerRadius="8"
+                        HorizontalAlignment="Center"/>
             </StackPanel>
         </Border>
     </Grid>
