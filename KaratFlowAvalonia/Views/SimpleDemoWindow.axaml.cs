@@ -95,18 +95,53 @@ namespace KaratFlowAvalonia.Views
             }
         }
 
-        private void GoogleSignInButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private async void GoogleSignInButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            // Google Sign-In implementation - simplified for now
-            var messageBox = new Window
+            try
             {
-                Title = "Google Sign-In",
-                Content = new TextBlock { Text = "Google Sign-In requires OAuth setup. Please use username/password or demo user.", Margin = new Avalonia.Thickness(20) },
-                Width = 400,
-                Height = 150,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner
-            };
-            messageBox.ShowDialog(this);
+                var oauthService = new GoogleOAuthService(null);
+                var authUrl = oauthService.GetAuthorizationUrl();
+                
+                // Open browser for OAuth flow
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = authUrl,
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi);
+                
+                // Show instructions to user
+                var messageBox = new Window
+                {
+                    Title = "Google Sign-In",
+                    Content = new StackPanel
+                    {
+                        Margin = new Avalonia.Thickness(20),
+                        Children =
+                        {
+                            new TextBlock { Text = "Google Sign-In opened in your browser.", Margin = new Avalonia.Thickness(0,0,0,10) },
+                            new TextBlock { Text = "After signing in, you'll need to manually enter the authorization code.", Margin = new Avalonia.Thickness(0,0,0,10) },
+                            new TextBlock { Text = "For now, please use username/password or demo user.", Margin = new Avalonia.Thickness(0,0,0,10) }
+                        }
+                    },
+                    Width = 400,
+                    Height = 200,
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                };
+                messageBox.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                var messageBox = new Window
+                {
+                    Title = "Google Sign-In Error",
+                    Content = new TextBlock { Text = $"Error: {ex.Message}", Margin = new Avalonia.Thickness(20) },
+                    Width = 400,
+                    Height = 150,
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                };
+                messageBox.ShowDialog(this);
+            }
         }
 
         private void FullscreenButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
